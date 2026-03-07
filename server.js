@@ -164,9 +164,15 @@ function buildPdfHtml(questions, level, lang, useArabic) {
   `;
 }
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Health: http://localhost:${PORT}/health`);
-  console.log(`API: POST http://localhost:${PORT}/api/generate-pdf`);
-});
+// ==========================================
+// 🚀 التعديل الخاص بـ Netlify
+// ==========================================
+
+// 1. تم إيقاف تشغيل السيرفر المحلي (Localhost) لأن Netlify لا يدعمه
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+
+// 2. السطر ده هو "نقطة البداية" اللي Netlify بيدور عليها عشان يشغل التطبيق
+module.exports.handler = serverless(app);
