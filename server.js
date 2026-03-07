@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const express = require('express');
 const puppeteer = require('puppeteer');
 const cors = require('cors');
